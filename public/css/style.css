@@ -1,0 +1,254 @@
+/* وين نروح؟ — التصميم الكامل (المرحلة 3) */
+:root {
+  --teal: #0f4c5c;
+  --teal-dark: #0a3641;
+  --accent: #b8470b;
+  --accent-dark: #8f3708;
+  --sand: #fbf6ec;
+  --sand-deep: #f1e7d3;
+  --ink: #1c1c1c;
+  --muted: #4a4a4a;
+  --line: #d9ccb2;
+  --radius: 10px;
+  --font-body: Tajawal, "Segoe UI", Tahoma, "Noto Sans Arabic", sans-serif;
+  --font-head: "Reem Kufi", Tajawal, "Segoe UI", Tahoma, "Noto Sans Arabic", sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  background: var(--sand);
+  color: var(--ink);
+  line-height: 1.8;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--teal); }
+a:hover { color: var(--accent-dark); }
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-head);
+  color: var(--teal);
+  line-height: 1.35;
+  margin: 0 0 12px;
+}
+h1 { font-size: clamp(1.75rem, 5vw, 2.75rem); }
+h2 { font-size: clamp(1.35rem, 3.5vw, 1.85rem); }
+h3 { font-size: 1.2rem; }
+
+p { margin: 0 0 14px; }
+
+.container { width: min(100% - 32px, 1120px); margin-inline: auto; }
+.section { padding-block: 40px; }
+
+.skip-link {
+  position: absolute;
+  top: -60px;
+  inset-inline-start: 8px;
+  background: var(--accent);
+  color: #fff;
+  padding: 8px 14px;
+  z-index: 100;
+  border-radius: 0 0 6px 6px;
+}
+.skip-link:focus { top: 0; color: #fff; }
+
+/* الترويسة */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--teal);
+  color: #fff;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+  gap: 16px;
+}
+.brand {
+  color: #fff;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+.brand:hover { color: #fff; }
+
+.main-nav ul { display: flex; gap: 24px; list-style: none; margin: 0; padding: 0; }
+.main-nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+}
+.main-nav a:hover { color: #fff; border-bottom-color: rgba(255, 255, 255, 0.6); }
+.main-nav a[aria-current="page"] { border-bottom-color: #fff; font-weight: 700; }
+
+.nav-toggle {
+  display: none;
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font: inherit;
+  cursor: pointer;
+}
+.site-header :focus-visible { outline-color: #fff; }
+
+/* الأزرار */
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 24px;
+  border: 0;
+  border-radius: 8px;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btn:hover { background: var(--accent-dark); color: #fff; }
+.btn-outline {
+  background: transparent;
+  color: var(--teal);
+  border: 2px solid var(--teal);
+}
+.btn-outline:hover { background: var(--teal); color: #fff; }
+
+/* الواجهة الرئيسية */
+.hero {
+  background: var(--teal);
+  color: #fff;
+  padding-block: 56px 64px;
+  background-image:
+    radial-gradient(circle at 12% 120%, rgba(184, 71, 11, 0.55) 0, rgba(184, 71, 11, 0) 45%),
+    radial-gradient(circle at 95% -20%, rgba(255, 255, 255, 0.1) 0, rgba(255, 255, 255, 0) 40%);
+}
+.hero h1 { color: #fff; max-width: 18ch; }
+.hero p { max-width: 52ch; font-size: 1.15rem; margin-bottom: 24px; }
+
+/* التصفية */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 24px; }
+.filter-btn {
+  font: inherit;
+  background: #fff;
+  color: var(--teal);
+  border: 2px solid var(--teal);
+  border-radius: 999px;
+  padding: 4px 18px;
+  cursor: pointer;
+}
+.filter-btn:hover { background: var(--sand-deep); }
+.filter-btn[aria-pressed="true"] { background: var(--teal); color: #fff; }
+
+/* بطاقات الفعاليات */
+.events-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+
+.event-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.event-card img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; background: var(--sand-deep); }
+.event-body { display: flex; flex-direction: column; gap: 6px; padding: 16px 18px 20px; flex: 1; }
+.event-body h3 { margin-bottom: 4px; }
+.event-meta { margin: 0; color: var(--muted); font-size: 0.97rem; }
+.event-meta strong { color: var(--ink); }
+.event-desc { margin: 6px 0 14px; }
+.event-body .btn { margin-top: auto; align-self: flex-start; }
+
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 4px; }
+.tag {
+  font-size: 0.85rem;
+  background: var(--sand-deep);
+  color: var(--teal-dark);
+  border-radius: 6px;
+  padding: 0 10px;
+}
+.tag-sample { background: #fff1d6; color: #6b3200; border: 1px dashed var(--accent); }
+
+.empty-state {
+  background: #fff;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  padding: 28px 20px;
+  text-align: center;
+}
+
+/* صفحة عن المبادرة */
+.prose { max-width: 66ch; }
+.prose section { margin-bottom: 32px; }
+.steps { padding-inline-start: 22px; margin: 0 0 14px; }
+.steps li { margin-bottom: 8px; }
+
+/* صفحة الاتصال */
+.contact-wrap { display: grid; gap: 28px; }
+.contact-intro { max-width: 52ch; }
+
+/* التذييل */
+.site-footer { background: var(--teal-dark); color: #fff; padding-block: 28px; margin-top: 48px; }
+.site-footer p { margin-bottom: 8px; }
+.site-footer ul { display: flex; flex-wrap: wrap; gap: 20px; list-style: none; padding: 0; margin: 0; }
+.site-footer a { color: #fff; }
+.site-footer a:hover { color: #ffd9bf; }
+.site-footer :focus-visible { outline-color: #fff; }
+
+/* 404 */
+.not-found { text-align: center; padding-block: 72px; }
+.not-found .big { font-family: var(--font-head); font-size: 5rem; line-height: 1; color: var(--accent); margin: 0; }
+
+/* الأجهزة المتوسطة */
+@media (min-width: 600px) {
+  .events-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* الجوال والأجهزة اللوحية الصغيرة */
+@media (max-width: 768px) {
+  .nav-toggle { display: inline-block; }
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 64px;
+    inset-inline: 0;
+    background: var(--teal);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .main-nav.open { display: block; }
+  .main-nav ul { flex-direction: column; gap: 0; padding: 8px 16px 16px; }
+  .main-nav a { display: block; padding: 12px 0; border-bottom: 0; }
+  .main-nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 6px; }
+  .hero { padding-block: 40px 48px; }
+}
+
+/* الحاسوب */
+@media (min-width: 1000px) {
+  .events-grid { grid-template-columns: repeat(3, 1fr); }
+  .contact-wrap { grid-template-columns: 1fr 1.2fr; align-items: start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
+}

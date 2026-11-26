@@ -1,0 +1,18 @@
+{
+  "name": "wein-nrouh",
+  "version": "1.0.0",
+  "description": "وين نروح؟ دليل أنشطة وفعاليات سطيف",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20 <25"
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "express": "^5.1.0",
+    "nodemailer": "^9.0.3"
+  }
+}

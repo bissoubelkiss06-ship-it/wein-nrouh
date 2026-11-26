@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="طاولة عمل عليها أدوات ورسومات ملونة">
+  <rect width="800" height="500" fill="#e6f0f1"/>
+  <rect x="90" y="300" width="620" height="28" rx="6" fill="#0f4c5c"/>
+  <rect x="140" y="328" width="22" height="130" fill="#0a3641"/>
+  <rect x="638" y="328" width="22" height="130" fill="#0a3641"/>
+  <rect x="170" y="190" width="150" height="110" rx="8" fill="#fbf6ec" stroke="#0f4c5c" stroke-width="4"/>
+  <circle cx="245" cy="245" r="28" fill="#b8470b"/>
+  <rect x="350" y="220" width="120" height="80" rx="8" fill="#e8892f"/>
+  <rect x="500" y="170" width="130" height="130" rx="8" fill="#fbf6ec" stroke="#0f4c5c" stroke-width="4"/>
+  <path d="M520 280 L565 205 L610 280Z" fill="#7aa38a"/>
+  <rect x="265" y="110" width="270" height="18" rx="9" fill="#0f4c5c" opacity="0.25"/>
+</svg>

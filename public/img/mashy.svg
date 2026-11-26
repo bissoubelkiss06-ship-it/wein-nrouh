@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="طريق بين تلال تحت شمس الصباح">
+  <rect width="800" height="500" fill="#fbe9c8"/>
+  <circle cx="610" cy="130" r="64" fill="#e8892f"/>
+  <path d="M0 330 Q150 220 300 310 T600 290 T800 320 V500 H0Z" fill="#7aa38a"/>
+  <path d="M0 390 Q200 300 400 380 T800 370 V500 H0Z" fill="#0f4c5c"/>
+  <path d="M330 500 Q380 440 420 410 Q450 390 470 372" fill="none" stroke="#fbf6ec" stroke-width="22" stroke-linecap="round"/>
+  <circle cx="470" cy="360" r="9" fill="#b8470b"/>
+</svg>

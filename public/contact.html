@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>اتصل بنا | وين نروح؟</title>
+  <meta name="description" content="راسل وين نروح؟ للاستفسار عن فعالية في سطيف أو اقتراح نشاط أو الانضمام كمنظّم.">
+  <meta name="theme-color" content="#0f4c5c">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/form.css">
+  <script src="/js/nav.js" defer></script>
+  <script src="/js/contact.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">تخطَّ إلى المحتوى</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">وين نروح؟</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">القائمة</button>
+      <nav id="main-nav" class="main-nav" aria-label="التنقل الرئيسي">
+        <ul>
+          <li><a href="/">الرئيسية</a></li>
+          <li><a href="/about">عن المبادرة</a></li>
+          <li><a href="/contact" aria-current="page">اتصل بنا</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container section">
+    <h1>اتصل بنا</h1>
+    <div class="contact-wrap">
+      <div class="contact-intro">
+        <p>سؤال عن فعالية، فكرة نشاط تريد أن نذكره، أو فعالية تنظّمها في سطيف وتريد نشرها؟ اكتب لنا.</p>
+        <h2>إن كنت منظّما، أرفق ما يلي</h2>
+        <ul class="steps">
+          <li>عنوان النشاط وتاريخه ووقته.</li>
+          <li>المكان بدقة.</li>
+          <li>وصف في سطرين، ولمن يناسب النشاط.</li>
+          <li>هل هو مجاني أم برسوم.</li>
+          <li>رابط التسجيل أو بريد للتواصل.</li>
+        </ul>
+      </div>
+      <section id="contact-form-area" aria-labelledby="form-title">
+        <h2 id="form-title">أرسل رسالتك</h2>
+        <noscript><p class="empty-state">يحتاج النموذج إلى تفعيل JavaScript في المتصفح.</p></noscript>
+        <form id="contact-form" class="form" method="post" action="/api/contact" novalidate>
+          <div class="field">
+            <label for="name">الاسم الكامل</label>
+            <input id="name" name="name" type="text" autocomplete="name" required minlength="2" maxlength="80" aria-describedby="name-error">
+            <p class="field-error" id="name-error" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="email">البريد الإلكتروني</label>
+            <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="254" aria-describedby="email-error">
+            <p class="field-error" id="email-error" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="phone">الهاتف <span class="optional">(اختياري)</span></label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="20" aria-describedby="phone-error">
+            <p class="field-error" id="phone-error" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="reason">سبب الرسالة</label>
+            <select id="reason" name="reason" required aria-describedby="reason-error">
+              <option value="">اختر…</option>
+              <option value="inquiry">استفسار عن فعالية</option>
+              <option value="suggest">اقتراح فعالية</option>
+              <option value="organizer">تسجيل منظّم</option>
+              <option value="other">أخرى</option>
+            </select>
+            <p class="field-error" id="reason-error" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="message">الرسالة</label>
+            <textarea id="message" name="message" required minlength="10" maxlength="1000" aria-describedby="message-error message-counter"></textarea>
+            <p class="counter" id="message-counter">0 / 1000</p>
+            <p class="field-error" id="message-error" hidden></p>
+          </div>
+
+          <div class="hp" aria-hidden="true">
+            <label for="website">اترك هذا الحقل فارغا</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
+          <button class="btn" type="submit">أرسل الرسالة</button>
+          <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>وين نروح؟ — مبادرة محلية في سطيف.</p>
+      <ul>
+        <li><a href="/">الرئيسية</a></li>
+        <li><a href="/about">عن المبادرة</a></li>
+        <li><a href="/contact">اتصل بنا</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

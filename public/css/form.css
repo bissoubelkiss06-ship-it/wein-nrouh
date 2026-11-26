@@ -1,0 +1,70 @@
+/* نموذج الاتصال (المرحلة 4) */
+.form {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px 20px 24px;
+}
+
+.field { margin-bottom: 18px; }
+
+.field label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.field .optional { font-weight: 400; color: var(--muted); }
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  font: inherit;
+  color: var(--ink);
+  background: #fff;
+  border: 2px solid #8a7f68;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+.field textarea { min-height: 140px; resize: vertical; }
+
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 1px;
+  border-color: var(--teal);
+}
+
+.field [aria-invalid="true"] { border-color: #a11a1a; }
+
+.field-error {
+  margin: 6px 0 0;
+  color: #a11a1a;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+.field-error[hidden] { display: none; }
+
+.counter { margin: 4px 0 0; font-size: 0.9rem; color: var(--muted); text-align: end; }
+
+/* حقل الفخ للروبوتات: خارج الشاشة ولا يصل إليه المستخدم */
+.hp {
+  position: absolute;
+  inset-inline-start: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-status {
+  margin-top: 16px;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-weight: 700;
+}
+.form-status:empty { display: none; }
+.form-status.is-success { background: #e1f2e6; color: #0f4a24; border: 1px solid #7cb98d; }
+.form-status.is-error { background: #fde8e8; color: #7a1010; border: 1px solid #d98a8a; }
+
+.btn[disabled] { opacity: 0.65; cursor: wait; }

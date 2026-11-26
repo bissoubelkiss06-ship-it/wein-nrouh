@@ -1,0 +1,44 @@
+[
+  {
+    "id": "nmoudaj-1",
+    "title": "نموذج: مشي جماعي صباحي",
+    "date": "2026-12-05",
+    "time": "09:00",
+    "place": "يُحدَّد من المنظّم",
+    "description": "بطاقة نموذجية تُظهر شكل الفعالية في الموقع. استبدل العنوان والتاريخ والمكان والوصف بمعلومات المنظّم الحقيقية.",
+    "audience": "all",
+    "free": true,
+    "image": "/img/mashy.svg",
+    "imageAlt": "رسم لطريق يمتد بين تلال تحت شمس الصباح",
+    "registerUrl": "/contact",
+    "sample": true
+  },
+  {
+    "id": "nmoudaj-2",
+    "title": "نموذج: ورشة للعائلات",
+    "date": "2026-12-12",
+    "time": "15:00",
+    "place": "يُحدَّد من المنظّم",
+    "description": "بطاقة نموذجية لنشاط عائلي. تُحذف بمجرد إضافة أول فعالية فعلية.",
+    "audience": "family",
+    "free": false,
+    "image": "/img/ourcha.svg",
+    "imageAlt": "رسم لطاولة عمل عليها أدوات ورسومات ملونة",
+    "registerUrl": "/contact",
+    "sample": true
+  },
+  {
+    "id": "nmoudaj-3",
+    "title": "نموذج: لقاء رياضي للشباب",
+    "date": "2026-12-19",
+    "time": "17:30",
+    "place": "يُحدَّد من المنظّم",
+    "description": "بطاقة نموذجية لنشاط شبابي. الصورة والرابط والموعد تُستبدل ببيانات حقيقية.",
+    "audience": "youth",
+    "free": true,
+    "image": "/img/riada.svg",
+    "imageAlt": "رسم لملعب بخطوط بيضاء وكرة في وسطه",
+    "registerUrl": "/contact",
+    "sample": true
+  }
+]
