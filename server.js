@@ -1,6 +1,7 @@
 'use strict';
 
 const path = require('path');
+const dns = require('dns').promises;
 const express = require('express');
 const nodemailer = require('nodemailer');
 const { validateContact, REASONS } = require('./lib/validate');
@@ -30,24 +31,30 @@ app.get('/healthz', (req, res) => {
 
 /* ---------- البريد (SMTP) ---------- */
 const REQUIRED_ENV = ['SMTP_HOST', 'SMTP_USER', 'SMTP_PASS', 'MAIL_TO'];
-let transport = null;
-
 function mailConfigured() {
   return REQUIRED_ENV.every((k) => process.env[k]);
 }
 
-function getTransport() {
-  if (!transport) {
-    transport = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT) || 587,
-      secure: process.env.SMTP_SECURE === 'true',
-      auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
-      connectionTimeout: 10000,
-      socketTimeout: 15000
-    });
+// Render لا يدعم IPv6 في الاتصالات الصادرة، وGmail يعيد عنوان IPv6 أولا.
+// نحلّ اسم الخادم إلى IPv4 ونتصل بالعنوان مباشرة، ونبقي اسم المضيف للتحقق من الشهادة.
+async function createTransport() {
+  const host = process.env.SMTP_HOST;
+  let address = host;
+  try {
+    const ips = await dns.resolve4(host);
+    if (ips.length) address = ips[0];
+  } catch (err) {
+    console.warn('تعذّر حل IPv4 لخادم SMTP، سيُستخدم الاسم كما هو:', err && err.code);
   }
-  return transport;
+  return nodemailer.createTransport({
+    host: address,
+    port: Number(process.env.SMTP_PORT) || 587,
+    secure: process.env.SMTP_SECURE === 'true',
+    auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
+    tls: { servername: host },
+    connectionTimeout: 10000,
+    socketTimeout: 15000
+  });
 }
 
 /* ---------- نموذج الاتصال ---------- */
@@ -90,7 +97,8 @@ app.post(
     ].join('\n');
 
     try {
-      await getTransport().sendMail({
+      const transporter = await createTransport();
+      await transporter.sendMail({
         from: process.env.MAIL_FROM || process.env.SMTP_USER,
         to: process.env.MAIL_TO,
         replyTo: { name: data.name, address: data.email },
