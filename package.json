@@ -13,6 +13,6 @@
   "private": true,
   "dependencies": {
     "express": "^5.1.0",
-    "nodemailer": "^9.0.3"
+    "nodemailer": "^10.0.6"
   }
 }
